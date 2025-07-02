@@ -1,0 +1,186 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+:root {
+  --offset: 4rem;
+}
+
+/* - Main container we implement as a flex to layout inner elements in a row
+   - We add height: 100vh to have the container fill the entire viewport
+*/
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* This is our image container, we give it flex 1 to take up less of the width&height 1:2 ratio
+    We have our position as relative so we can have our logo-container position absolute */
+.image-container {
+  flex: 1;
+  position: relative;
+}
+
+/* This will grab children images inside of our .image-container ONLY
+   We put 100% width & height to take up the full image-container width and height*/
+.image-container > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* This is our logo container that contains word & logo. We display it as flex to have the logo and word layout in a row and cenetered
+   Top is 20% to put it 20% from the top. We also use rgba(0, 0, 0, 0.5) so only our container has an alpha of 0.5, using opacity:0.5 will 
+   make container and all children have opacity of 0.5 */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  height: 15%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Our logo word with the font size 4 rem and colour*/
+.logo-word {
+  font-size: 4rem;
+  color: white;
+}
+
+/*Since rem is relative, changing it affects the spacing between elements 
+so we have to be careful when using rem because if it's bigger, it will push the other element further*/
+.logo-container > img {
+  width: 5rem;
+  height: 90%;
+  object-fit: contain;
+}
+
+/* This is our form container, we give it flex 2 to take up more of the width&height like a 2:1 ratio*/
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 2;
+}
+/* Service print container position relative to have print absolute position */
+.service-container {
+  position: relative;
+  height: 45%;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background-color: rgb(249, 250, 251);
+}
+
+.service-print {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+}
+
+/* Parent inputs container */
+.form-inputs {
+  position: relative;
+  z-index: 10;
+  height: 35%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 9px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Form container in our container with display flex */
+.input-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 1rem;
+  max-width: 35rem;
+  height: 10rem;
+  margin: var(--offset) 0 0 var(--offset);
+}
+
+/* Form item */
+.form-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 15rem;
+}
+/* Sign up below print */
+.sign-up-below {
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: var(--offset);
+}
+
+/* The Input labels */
+.form-item label {
+  font-size: 0.925rem;
+}
+
+/* The Input inputs */
+.form-item input {
+  border: solid;
+  border-radius: 0.3rem;
+  border-width: 0.1rem;
+  padding: 0.4rem;
+  border-color: #e5e7eb;
+
+  transition: border-color 0.15s;
+}
+/* The Input focus */
+.form-item input:focus {
+  border-color: rgb(77, 77, 255);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+/* The Input invalid, checking if password meets minimum length */
+#password:invalid,
+#confirm-password:invalid {
+  border-color: rgb(255, 77, 77);
+  outline: none;
+}
+
+/* The Input valid, checking if password meets minimum length */
+#password:valid,
+#confirm-password:valid {
+  border-color: rgb(113, 255, 77);
+  outline: none;
+}
+
+/* Button & Login parent container */
+.account-container {
+  background-color: rgb(249, 250, 251);
+  height: 30%;
+}
+
+/* Create account button container */
+.account-signup {
+  margin: 3rem 0 0 var(--offset);
+}
+
+/* Create account button*/
+#create-account {
+  width: 13rem;
+  height: 2.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: rgb(82, 122, 17);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Create account hovering changing colour*/
+#create-account:hover {
+  background-color: rgb(75, 119, 3);
+  cursor: pointer;
+}
+
+/* Log in print and link */
+.log-in a {
+  text-decoration: none;
+  color: rgb(75, 119, 3);
+}
