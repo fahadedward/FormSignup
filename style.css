@@ -128,7 +128,7 @@ so we have to be careful when using rem because if it's bigger, it will push the
 
   transition: border-color 0.15s;
 }
-/* The Input focus */
+/* The Input when it's focused */
 .form-item input:focus {
   border-color: rgb(77, 77, 255);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
